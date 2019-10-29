@@ -1,0 +1,21 @@
+# 0 – git rename branch: change branch name
+
+As I mentioned, having a branch naming convention a good practice and should be adopted as part of your coding standards, and it is especially useful in supporting automation of git workflows. But what to do when you find out your branch name is not aligned with the convention, after already pushing code to the branch? Don’t worry, you can still rename your branch.
+How to rename branch name after it was created:
+
+    Checkout to the branch you need to rename: $ git checkout <old-name>
+    Rename branch name locally: $ git branch -m <new-name>
+    Delete old branch from remote: $ git push origin :<old-name> <new-name>
+    Reset the upstream branch for the new branch name: $ git push origin -u <new-name>
+
+-> commit-test git:(old-name) x git branch -m new-name
+-> commit-test git:(new-name) x git push origin :old-name new-name
+Total 0 (delta 0), reused 0 (delta 0)
+To github.com:datreeio/commit-test.git
+–  [deleted]             old-name
+* [new branch]      new-name -> new-name
+-> commit-test git:(new-name) x git push origin -u new-name
+Branch new-name set up to track remote branch new-name from origin.
+Everything up-to-date
+
+Git tip: Want to make sure all branch names will always follow your convention? Set a Git-enforced branch naming policy.
